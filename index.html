@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeplink Test</title>
+</head>
+<body>
+    <a  href="intent://gedik.com/investment_products/#Intent;scheme=https;package=com.gedik.hizlihesap;end" id="androidLink">
+        Android
+    </a>
+    <a    href="hizlihesapiosProducts://" id="iosLink">
+        ios
+    </a>
+    <script>
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        if (/iphone|ipad|ipod/.test(userAgent)) {
+      const button = document.querySelector('#iosLink');
+      button.click();
+      setTimeout(() => {
+        window.location.href =
+          'https://apps.apple.com/us/app/gedik-yat%C4%B1r%C4%B1m-quick-account/id1604600328?mt=8';
+      }, 500);
+      window.onblur = function () {
+        document.body.style.backgroundColor = "red";
+        //window.close();
+      };
+    } else if (/android/.test(userAgent)) {
+      const button = document.querySelector('#androidLink');
+      button.click();
+      setTimeout(() => {
+        window.location.href =
+          'https://play.google.com/store/apps/details?id=com.gedik.hizlihesap';
+      }, 500);
+
+      window.onblur = function () {
+        document.body.style.backgroundColor = "red";
+        //window.close();
+      };
+    }
+    </script>
+</body>
+</html>
