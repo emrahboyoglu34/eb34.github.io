@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="description">
     <meta name="author" content="">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-180x180.png">
+    <link rel="icon" type="image/png" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://www.acibadem.com.tr/assets/images/acibadem-saglik-grubu-16x16.png" sizes="16x16">
     <title>Tedaviler | Uluslararası Eklem Merkezi | Acıbadem</title>
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -15,11 +24,7 @@
     <div class="header__right">
       <div class="only-before-lg">
         <div class="language">
-          <div class="language__opener js-language"> <span>TR</span><img src="./img/tr.jpg" alt="Türkçe">
-            <ul class="language__list">
-              <li class="language__list-item"><a class="language__list-link" href="#" title="EN"><span>EN</span><img src="./img/uk.jpg" alt="English"></a></li>
-            </ul>
-          </div>
+          <div class="language__opener js-language"> <span>En</span><img src="./img/uk.jpg" alt="English"></div>
         </div>
         <button class="header__hamburger-button js-hamburger-button" type="button"></button>
       </div>
@@ -28,14 +33,10 @@
           <div class="header__menu-item"><a class="header__menu-link" href="" title="Merkezimiz">Merkezimiz</a></div>
           <div class="header__menu-item"><a class="header__menu-link" href="" title="Ekibimiz">Ekibimiz</a></div>
           <div class="header__menu-item"><a class="header__menu-link" href="" title="Tedaviler">Tedaviler</a></div>
-          <div class="header__menu-item"><a class="header__menu-link" href="#iletisim" title="İletişim">İletişim</a></div>
+          <div class="header__menu-item"><a class="header__menu-link js-menu-contact" href="#iletisim" title="İletişim">İletişim<span>Sizi Hemen<br>Arayalım</span></a></div>
         </div>
         <div class="language">
-          <div class="language__opener js-language"> <span>TR</span><img src="./img/tr.jpg" alt="Türkçe">
-            <ul class="language__list">
-              <li class="language__list-item"><a class="language__list-link" href="#" title="EN"><span>EN</span><img src="./img/uk.jpg" alt="English"></a></li>
-            </ul>
-          </div>
+          <div class="language__opener js-language"> <span>EN</span><img src="./img/uk.jpg" alt="English"></div>
         </div>
       </nav>
     </div>
@@ -71,9 +72,13 @@
                             <h6 class="sidebar__mobile-title js-sidebar-mobile-opener">İçindekiler</h6>
                           </div>
                           <ul class="sidebar__items">
-                            <li class="sidebar__item"><a class="sidebar__link sidebar__link--active" href="#" title="Merkezimiz">Merkezimiz</a></li>
-                            <li class="sidebar__item"><a class="sidebar__link" href="#" title="Ekibimiz">Ekibimiz</a></li>
-                            <li class="sidebar__item"><a class="sidebar__link" href="#" title="Tedaviler">Tedaviler</a></li>
+                            <li class="sidebar__item"><a class="sidebar__link sidebar__link--active" href="#" title="Tedaviler">Tedaviler</a>
+                              <ul class="sidebar__sub-items sidebar__sub-items--active">
+                                <li class="sidebar__sub-item"><a class="sidebar__link sidebar__link--active" href="#tedavi1" title="Tedavi 1">Tedavi 1</a></li>
+                                <li class="sidebar__sub-item"><a class="sidebar__link" href="#tedavi2" title="Tedavi 2">Tedavi 2</a></li>
+                                <li class="sidebar__sub-item"><a class="sidebar__link" href="#tedavi3" title="Tedavi 3">Tedavi 3</a></li>
+                              </ul>
+                            </li>
                           </ul>
                         </div>
             <div class="only-after-lg">
@@ -134,13 +139,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="only-before-lg">
-<div class="contact-box">
-  <h6 class="contact-box__title">Lorem İpsum dolar sit amet</h6>
-  <p class="contact-box__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-  <div class="contact-box__cta"><a class="button button--secondary button--sm" href="#" title="Detaylı Bilgi">Detaylı Bilgi</a></div>
-</div>
             </div>
           </div>
           <div class="modal" id="video-1">
