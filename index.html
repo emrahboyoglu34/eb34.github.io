@@ -10,82 +10,51 @@
       <input
         class="code-1"
         type="text"
-        name="code"
+        name="sms-code"
         maxlength="1"
         inputmode="numeric"
+        autocomplete="one-time-code"
       />
-      <input
-        class="code-2"
-        type="text"
-        name="code"
-        maxlength="1"
-        inputmode="numeric"
-      />
-      <input
-        class="code-3"
-        type="text"
-        name="code"
-        maxlength="1"
-        inputmode="numeric"
-      />
-      <input
-        class="code-4"
-        type="text"
-        name="code"
-        maxlength="1"
-        inputmode="numeric"
-      />
-      <input
-        class="code-5"
-        type="text"
-        name="code"
-        maxlength="1"
-        inputmode="numeric"
-      />
+      <input class="code-2" type="text" maxlength="1" inputmode="numeric" />
+      <input class="code-3" type="text" maxlength="1" inputmode="numeric" />
+      <input class="code-4" type="text" maxlength="1" inputmode="numeric" />
+      <input class="code-5" type="text" maxlength="1" inputmode="numeric" />
     </div>
 
     <script>
       const codes = document.querySelectorAll(
         ".doctor-quick-appointment__sms-codes input"
       );
+
       if (codes.length) {
         codes.forEach((input, index) => {
-          // // Sadece input'lara tıklandığında ilk inputa focuslanma
-          // input.addEventListener("click", function() {
-          //     codes[0].focus();
-          // });
+          
+          // Otomatik yapıştırma veya manuel giriş
+          input.addEventListener("input", (e) => {
+            const value = e.target.value;
 
-          // Karakter girildiğinde bir sonraki inputa geçiş
-          input.addEventListener("keyup", function () {
-            if (this.value && index < codes.length - 1) {
+            // Yapıştırma kontrolü
+            if (value.length > 1) {
+              value.split("").forEach((char, i) => {
+                if (i < codes.length) {
+                  codes[i].value = char;
+                }
+              });
+              codes[codes.length - 1].focus();
+            } else if (value && index < codes.length - 1) {
+              // Tek karakter girişinde otomatik ilerleme
               codes[index + 1].focus();
             }
           });
 
-          // Backspace ile bir önceki inputa geçiş
-          input.addEventListener("keydown", function (event) {
-            if (event.key === "Backspace" && this.value === "") {
-              if (index > 0) {
-                codes[index - 1].focus();
-              }
+          // Backspace ile geri gitme
+          input.addEventListener("keydown", (event) => {
+            if (event.key === "Backspace" && input.value === "" && index > 0) {
+              codes[index - 1].focus();
             }
           });
-
-          input.addEventListener('input',(e)=>{
-          const [first,...rest] = e.target.value
-          var _first;
-          e.target.value = (_first = first) !== null && _first !== void 0 ? _first : '';
-          const lastInputBox = index===codes.length-1
-          const didInsertContent = first!==undefined
-          if(didInsertContent && !lastInputBox) {
-            codes[index+1].focus()
-            codes[index+1].value = rest.join('')
-            codes[index+1].dispatchEvent(new Event('input'))
-          }
-        })
         });
       }
-      
     </script>
   </body>
 </html>
