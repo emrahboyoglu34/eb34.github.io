@@ -11,7 +11,7 @@
         class="code-1"
         type="text"
         name="sms-code"
-        maxlength="1"
+        maxlength="5"
         inputmode="numeric"
         autocomplete="one-time-code"
       />
@@ -27,29 +27,37 @@
       );
 
       if (codes.length) {
-        codes.forEach((input, index) => {
-          
-          // Otomatik yapıştırma veya manuel giriş
-          input.addEventListener("input", (e) => {
-            const value = e.target.value;
+        codes[0].addEventListener("input", (e) => {
+          const value = e.target.value.trim();
 
-            // Yapıştırma kontrolü
-            if (value.length > 1) {
-              value.split("").forEach((char, i) => {
-                if (i < codes.length) {
-                  codes[i].value = char;
-                }
-              });
-              codes[codes.length - 1].focus();
-            } else if (value && index < codes.length - 1) {
-              // Tek karakter girişinde otomatik ilerleme
+          // Panodan yapıştırma kontrolü
+          if (value.length === 5) {
+            value.split("").forEach((char, i) => {
+              if (i < codes.length) {
+                codes[i].value = char;
+              }
+            });
+            codes[codes.length - 1].focus();
+          } else if (value.length === 1) {
+            codes[1].focus();
+          }
+        });
+
+        codes.forEach((input, index) => {
+          // Manuel giriş
+          input.addEventListener("input", (e) => {
+            if (e.target.value && index < codes.length - 1) {
               codes[index + 1].focus();
             }
           });
 
           // Backspace ile geri gitme
           input.addEventListener("keydown", (event) => {
-            if (event.key === "Backspace" && input.value === "" && index > 0) {
+            if (
+              event.key === "Backspace" &&
+              input.value === "" &&
+              index > 0
+            ) {
               codes[index - 1].focus();
             }
           });
